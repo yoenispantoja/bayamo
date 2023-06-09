@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AvioncitoComponent } from './avioncito/avioncito.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AvioncitoComponent
   ],
   imports: [
     BrowserModule,
