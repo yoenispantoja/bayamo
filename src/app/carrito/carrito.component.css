@@ -1,0 +1,20 @@
+p{
+  color: red;
+}
+
+.info{
+  background-color: blue;
+  color: #fff;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.danger{
+  background-color: red;
+  color: #fff;
+  padding: 10px;
+  border: 1px solid black;
+}
+.seleccionada{
+  color: yellow;
+}

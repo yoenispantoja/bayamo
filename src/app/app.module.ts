@@ -1,20 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { AvioncitoComponent } from './avioncito/avioncito.component';
+import { CarritoComponent } from './carrito/carrito.component';
+import { RuedaComponent } from './rueda/rueda.component';
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AvioncitoComponent
-  ],
-  imports: [
-    BrowserModule,
-    NgbModule
-  ],
+  declarations: [AppComponent, CarritoComponent, RuedaComponent],
+  imports: [BrowserModule, NgbModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
