@@ -1,27 +1,24 @@
 <!-- generate card html -->
 <div class="card">
   <div class="card-header">
-    <h4>Carrito</h4>
+    <h4>Carrito {{ categoria | letras: 'portugues' }}</h4>
   </div>
   <div class="card-body">
     <div [ngClass]="tipo=='danger'?'danger':'info'">
-      <h3>Información</h3>
+      <h3 id="h3Bonito">Información</h3>
       <h4 class="seleccionada">Rueda seleccionada: {{seleccionada}}</h4>
       <h4>Evaluación: {{evaluacion}}</h4>
     </div>
-    <app-rueda
+    <app-rueda #cuba [identificador]="'delantera-izquierd'" [marca]="'Michelin'" [precio]="300">
+    </app-rueda>
+
+    <!--     <app-rueda
       *ngFor="let rueda of ruedas"
       [identificador]="rueda.identificador"
       [marca]="rueda.marca"
       [precio]="rueda.precio"
       (ruedaSeleccionada)="recibirSeleccionRueda($event)"
       >
-    </app-rueda>
-
-
-    <!-- <app-rueda [identificador]="'delantera-derecha'" [marca]="'Michelin'"></app-rueda>
-    <app-rueda [identificador]="'delantera-izquierda'" [marca]="'Iguazu'"></app-rueda>
-    <app-rueda [identificador]="'trasera-derecha'" [marca]="'Corona'"></app-rueda>
-    <app-rueda [identificador]="'trasera-izquierda'" [marca]="'JKL'"></app-rueda> -->
+    </app-rueda> -->
   </div>
 </div>
