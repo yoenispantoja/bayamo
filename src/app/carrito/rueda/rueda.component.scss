@@ -1,12 +1,12 @@
 strong {
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .rueda {
-  padding: 30px;
+  padding: 10px;
   border-bottom: 1px solid black;
   display: grid;
-  grid-template-columns: 10% auto;
+  grid-template-columns: auto auto;
 
   .left {
     img {

@@ -9,16 +9,15 @@
       <h4 class="seleccionada">Rueda seleccionada: {{seleccionada}}</h4>
       <h4>Evaluación: {{evaluacion}}</h4>
     </div>
-    <app-rueda #cuba [identificador]="'delantera-izquierd'" [marca]="'Michelin'" [precio]="300">
-    </app-rueda>
+    <div class="row">
+      <div class="col-3 card me-2" *ngFor="let rueda of ruedas">
+      <div class="card-body">
+        <app-rueda [identificador]="rueda.identificador" [marca]="rueda.marca" [precio]="rueda.precio"
+          (ruedaSeleccionada)="recibirSeleccionRueda($event)">
+        </app-rueda>
+      </div>
+      </div>
 
-    <!--     <app-rueda
-      *ngFor="let rueda of ruedas"
-      [identificador]="rueda.identificador"
-      [marca]="rueda.marca"
-      [precio]="rueda.precio"
-      (ruedaSeleccionada)="recibirSeleccionRueda($event)"
-      >
-    </app-rueda> -->
+    </div>
   </div>
 </div>

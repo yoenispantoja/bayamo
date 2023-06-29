@@ -3,10 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CarritoModule } from './carrito/carrito.module';
+import { NavbarComponent } from './navbar/navbar.component';
+import { WelcomeModule } from './welcome/welcome.module';
+import { AvioncitoModule } from './avioncito/avioncito.module';
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
-  declarations: [	AppComponent],
-  imports: [BrowserModule, NgbModule, CarritoModule],
+  declarations: [AppComponent, NavbarComponent],
+  imports: [
+    BrowserModule,
+    NgbModule,
+    CarritoModule,
+    WelcomeModule,
+    AvioncitoModule,
+    AppRoutingModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
