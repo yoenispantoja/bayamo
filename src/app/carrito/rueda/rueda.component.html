@@ -8,7 +8,12 @@
     <h3>{{identificador}}</h3>
     <h4>Marca: {{marca}}</h4>
     <h4 class="precio">Precio: {{precio}}</h4>
+    <span appResaltado>Este es no un hiperlink</span>
     <br>
+    <a appResaltado>Este es un hiperlink</a>
+    <br>
+     <img imgFallback [src]="urlFoto">
+     <br>
     <button class="btn btn-secondary" (click)="emitirSeleccion()">Seleccionar</button>
   </div>
 </div>

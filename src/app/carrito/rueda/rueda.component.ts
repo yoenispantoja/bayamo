@@ -12,7 +12,7 @@ export class RuedaComponent {
   @Input() marca!: string;
   @Input() precio!: number;
 
-
+  urlFoto="https://static.wbsc.org/assets/cms/5cf7705d-77e0-bea4-a791-ec2ed468c94323.jpg";
 
   @Output() ruedaSeleccionada = new EventEmitter<any>();
 
