@@ -1,14 +1,27 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AvioncitoComponent } from './avioncito/avioncito.component';
-import { CarritoComponent } from './carrito/carrito.component';
-import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
-  { path: '', component: WelcomeComponent },
-  { path: 'carrito', component: CarritoComponent },
-  { path: 'avioncito', component: AvioncitoComponent },
-  { path: '**', redirectTo: '' },
+  {
+    path: 'carrito',
+    loadChildren: () =>
+      import('./carrito/carrito.module').then((m) => m.CarritoModule),
+  },
+  {
+    path: 'avioncito',
+    loadChildren: () =>
+      import('./avioncito/avioncito.module').then((m) => m.AvioncitoModule),
+  },
+  {
+    path: 'trencito',
+    loadChildren: () =>
+      import('./trencito/trencito.module').then((m) => m.TrencitoModule),
+  },
+  {
+    path: 'filmes',
+    loadChildren: () =>
+      import('./filmes/filmes.module').then((m) => m.FilmesModule),
+  },
 ];
 
 @NgModule({

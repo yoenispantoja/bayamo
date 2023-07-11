@@ -1,0 +1,29 @@
+<!-- generate html cards of films -->
+<div class="card">
+  <div class="card-header">
+    <h4>Lista de películas {{contador}}</h4>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-3 card me-2" *ngFor="let film of filmes">
+        <div class="card-body">
+          <ul>
+           <li><span><strong>Número: </strong>{{film._id}}</span></li>
+            <li><span><strong>Nombre: </strong>{{film.nombre}}</span></li>
+            <li><span><strong>Duración: </strong>{{film.duracion}}</span></li>
+            <li><span><strong>Director: </strong>{{film.director}}</span></li>
+            <li><span><strong>Género: </strong>{{film.genero}}</span></li>
+          </ul>
+        <!--   delete button -->
+        </div>
+        <div class="card-footer text-end">
+          <button class="btn btn-danger" (click)="deleteFilm(film._id)">Eliminar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
