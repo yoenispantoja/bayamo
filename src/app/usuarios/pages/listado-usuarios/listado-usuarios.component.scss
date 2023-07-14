@@ -1,0 +1,21 @@
+.container {
+  &__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-top: 20px;
+  }
+  &__body{
+    margin-top: 20px;
+
+    .avatar{
+      img{
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+      }
+    }
+  }
+}

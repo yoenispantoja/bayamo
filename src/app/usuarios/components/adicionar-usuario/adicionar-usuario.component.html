@@ -1,0 +1,29 @@
+<div>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Nuevo usuario</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+      <div class="formGroup mb-3">
+        <input type="text" class="form-control" [(ngModel)]="nombre" placeholder="Nombre">
+      </div>
+      <div class="formGroup mb-3">
+        <input type="text" class="form-control" [(ngModel)]="apellido" placeholder="Apellido">
+      </div>
+      <div class="formGroup mb-3">
+        <input type="number" class="form-control" [(ngModel)]="edad" placeholder="Edad">
+      </div>
+      <div class="formGroup mb-3">
+        <input type="text" class="form-control" [(ngModel)]="email" placeholder="Email">
+      </div>
+      <div class="formGroup mb-3">
+        <input type="text" class="form-control" [(ngModel)]="genero" placeholder="Genero">
+      </div>
+      <div class="formGroup mb-3">
+        <input type="tel" class="form-control" [(ngModel)]="telefono" placeholder="Teléfono">
+      </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="adicionarUsuario()">Adicionar</button>
+  </div>
+</div>

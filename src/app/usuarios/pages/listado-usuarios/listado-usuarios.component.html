@@ -1,0 +1,31 @@
+<!-- generate html cards of usuarios -->
+<div class="container">
+  <div class="container__header">
+    <h4>Lista de usuarios</h4>
+    <button class="btn btn-primary" (click)="adicionarUsuario()">Nuevo usuario</button>
+  </div>
+  <div class="container__body">
+    <div class="row">
+      <div class="col-3 card me-3 mb-3" *ngFor="let usuario of usuarios">
+        <div class="card-body">
+        <div class="avatar text-center mb-3">
+          <img [src]="usuario.avatar" alt="">
+        </div>
+          <ul>
+            <li><span><strong>Número: </strong>{{usuario.id}}</span></li>
+            <li><span><strong>Nombre: </strong>{{usuario.nombre}}</span></li>
+            <li><span><strong>Apellido: </strong>{{usuario.apellido}}</span></li>
+            <li><span><strong>Edad: </strong>{{usuario.edad}}</span></li>
+            <li><span><strong>Género: </strong>{{usuario.genero}}</span></li>
+            <li><span><strong>Email: </strong>{{usuario.email}}</span></li>
+            <li><span><strong>Teléfono: </strong>{{usuario.telefono}}</span></li>
+          </ul>
+          <!--   delete button -->
+        </div>
+        <div class="card-footer text-end">
+          <button class="btn btn-danger" (click)="deleteUsuario(usuario)">Eliminar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
