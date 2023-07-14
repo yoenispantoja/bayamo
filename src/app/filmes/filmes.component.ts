@@ -1,6 +1,7 @@
 import { Filme } from './../helpers/models/filme';
 import { Component, OnInit } from '@angular/core';
 import { FilmesService } from './filmes.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-filmes',
@@ -31,4 +32,5 @@ export class FilmesComponent implements OnInit {
       this.cargarDatos();
     });
   }
+
 }
