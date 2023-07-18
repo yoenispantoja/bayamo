@@ -4,14 +4,15 @@ import { ListadoUsuariosComponent } from './pages/listado-usuarios/listado-usuar
 import { UsuariosRoutingModule } from './usuarios.routing.module';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdicionarUsuarioComponent } from './components/adicionar-usuario/adicionar-usuario.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     UsuariosRoutingModule,
     NgbModalModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [ListadoUsuariosComponent, AdicionarUsuarioComponent]
 })

@@ -8,3 +8,5 @@ export interface DTOUsuario {
   genero: string;
   telefono: string;
 }
+
+

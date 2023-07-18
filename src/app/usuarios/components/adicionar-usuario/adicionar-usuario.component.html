@@ -4,26 +4,39 @@
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
   </div>
   <div class="modal-body">
+    <form [formGroup]="userForm" class="needs-validation" novalidate>
       <div class="formGroup mb-3">
-        <input type="text" class="form-control" [(ngModel)]="nombre" placeholder="Nombre">
+        <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre" [ngClass]="this.userForm.get('nombre')!.invalid && (this.userForm.get('nombre')!.touched || this.userForm.get('nombre')!.dirty) ?'controlError' :''">
+        <div class="invalid-feedback" *ngIf="this.userForm.get('nombre')!.invalid && (this.userForm.get('nombre')!.touched || this.userForm.get('nombre')!.dirty)">El nombre debe tener mínimo 3 caracteres</div>
       </div>
       <div class="formGroup mb-3">
-        <input type="text" class="form-control" [(ngModel)]="apellido" placeholder="Apellido">
+        <input type="text" class="form-control" formControlName="apellido" placeholder="Apellido">
       </div>
       <div class="formGroup mb-3">
-        <input type="number" class="form-control" [(ngModel)]="edad" placeholder="Edad">
+        <input type="number" class="form-control" formControlName="edad" placeholder="Edad">
       </div>
       <div class="formGroup mb-3">
-        <input type="text" class="form-control" [(ngModel)]="email" placeholder="Email">
+        <input type="text" class="form-control" formControlName="email" placeholder="Email" [ngClass]="this.userForm.get('email')!.errors ?'controlError' :''">
+       <small class="invalid-feedback" *ngIf="this.userForm.get('email')!.errors && this.userForm.get('email')!.errors!['required']">El email es requerido</small><br/>
+        <small class="invalid-feedback" *ngIf="this.userForm.get('email')!.errors && this.userForm.get('email')!.errors!['email']">El email es inválido</small>
       </div>
       <div class="formGroup mb-3">
-        <input type="text" class="form-control" [(ngModel)]="genero" placeholder="Genero">
+        <input type="text" class="form-control" formControlName="genero" placeholder="Genero">
       </div>
       <div class="formGroup mb-3">
-        <input type="tel" class="form-control" [(ngModel)]="telefono" placeholder="Teléfono">
+        <input type="tel" class="form-control" formControlName="telefono" placeholder="Teléfono">
       </div>
+      <div formGroupName="direccion">
+       <div class="formGroup mb-3">
+        <input type="tel" class="form-control" formControlName="calle" placeholder="Calle">
+      </div>
+       <div class="formGroup mb-3">
+        <input type="tel" class="form-control" formControlName="numero" placeholder="Número">
+      </div>
+      </div>
+    </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="adicionarUsuario()">Adicionar</button>
+    <button type="button" class="btn btn-outline-dark" [disabled]="this.userForm.invalid" (click)="adicionarUsuario()">Adicionar</button>
   </div>
 </div>
