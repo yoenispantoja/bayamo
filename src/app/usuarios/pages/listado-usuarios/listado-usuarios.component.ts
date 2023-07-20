@@ -4,6 +4,7 @@ import { UsuariosService } from '../../services/usuarios.service';
 import Swal from 'sweetalert2';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { AdicionarUsuarioComponent } from '../../components/adicionar-usuario/adicionar-usuario.component';
+import { EditarUsuarioComponent } from '../../components/editar-usuario/editar-usuario.component';
 
 @Component({
   selector: 'listado-usuarios',
@@ -13,6 +14,7 @@ import { AdicionarUsuarioComponent } from '../../components/adicionar-usuario/ad
 export class ListadoUsuariosComponent implements OnInit {
   usuarios: DTOUsuario[] = [];
   gente: any[] = [];
+  pagina: number = 1;
 
   constructor(
     private usuariosService: UsuariosService,
@@ -55,6 +57,17 @@ export class ListadoUsuariosComponent implements OnInit {
     this.modalService.open(AdicionarUsuarioComponent).result.then((res) => {
       if (res) {
         Swal.fire(`El usuario ha sido creado!`, '', 'success');
+        this.cargarDatos();
+      }
+    });
+  }
+
+  editarUsuario(usuario: DTOUsuario) {
+    const modalEditar = this.modalService.open(EditarUsuarioComponent);
+    modalEditar.componentInstance.usuario = usuario;
+    modalEditar.result.then((res) => {
+      if (res) {
+        Swal.fire(`El usuario ha sido actualizado!`, '', 'success');
         this.cargarDatos();
       }
     });

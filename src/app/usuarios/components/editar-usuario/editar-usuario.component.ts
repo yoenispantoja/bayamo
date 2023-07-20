@@ -1,19 +1,16 @@
-import { DTOUsuario } from './../../models/DTOUsuario';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { DTOUsuario } from '../../models/DTOUsuario';
 import { UsuariosService } from '../../services/usuarios.service';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
 
 @Component({
-  selector: 'adicionar-usuario',
-  templateUrl: './adicionar-usuario.component.html',
-  styleUrls: ['./adicionar-usuario.component.scss'],
+  selector: 'editar-usuario',
+  templateUrl: './editar-usuario.component.html',
+  styleUrls: ['./editar-usuario.component.scss']
 })
-export class AdicionarUsuarioComponent implements OnInit {
+export class EditarUsuarioComponent implements OnInit {
+  @Input() usuario!: DTOUsuario;
   userForm!: FormGroup;
 
   constructor(
@@ -31,25 +28,32 @@ export class AdicionarUsuarioComponent implements OnInit {
       genero: '',
       telefono: ''
     });
+
+    this.userForm.patchValue({
+      nombre: this.usuario.nombre,
+      apellido: this.usuario.apellido,
+      email: this.usuario.email,
+      edad: this.usuario.edad,
+      genero: this.usuario.genero,
+      telefono: this.usuario.telefono
+    });
   }
 
-  adicionarUsuario() {
+  actualizarUsuario() {
     const usuario = this.userForm.value;
-    const nuevoUsuario: DTOUsuario = {
-      id: Math.floor(Math.random() * 1000),
+    const usuarioActualizado: DTOUsuario = {
+      id: this.usuario.id,
       nombre: usuario.nombre,
       apellido: usuario.apellido,
       edad: usuario.edad,
       email: usuario.email,
       genero: usuario.genero,
-      avatar:
-        usuario.genero === 'Masculino'
-          ? 'https://xsgames.co/randomusers/avatar.php?g=male'
-          : 'https://xsgames.co/randomusers/avatar.php?g=female',
+      avatar: this.usuario.avatar,
       telefono: usuario.telefono,
     };
-    this.usuariosService.adicionarUsuario(nuevoUsuario).subscribe(() => {
+    this.usuariosService.actualizarUsuario(usuarioActualizado).subscribe(() => {
       this.modal.close(true);
     });
   }
+
 }

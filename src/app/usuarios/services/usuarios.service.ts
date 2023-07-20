@@ -22,4 +22,8 @@ export class UsuariosService {
   adicionarUsuario(usuario: DTOUsuario): Observable<void> {
     return this.http.post<void>(this.url, usuario );
   }
+
+  actualizarUsuario(usuario: DTOUsuario): Observable<void> {
+    return this.http.put<void>(`${this.url}/${usuario.id}`, usuario );
+  }
 }

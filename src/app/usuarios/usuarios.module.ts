@@ -5,6 +5,8 @@ import { UsuariosRoutingModule } from './usuarios.routing.module';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdicionarUsuarioComponent } from './components/adicionar-usuario/adicionar-usuario.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
@@ -12,8 +14,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     UsuariosRoutingModule,
     NgbModalModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
-  declarations: [ListadoUsuariosComponent, AdicionarUsuarioComponent]
+  declarations: [ListadoUsuariosComponent, AdicionarUsuarioComponent, EditarUsuarioComponent]
 })
 export class UsuariosModule { }

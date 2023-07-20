@@ -1,10 +1,10 @@
 <div>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Nuevo usuario</h4>
+    <h4 class="modal-title" id="modal-basic-title">Editar usuario</h4>
     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
   </div>
   <div class="modal-body">
-    <form [formGroup]="userForm" class="needs-validation" novalidate>
+    <form [formGroup]="userForm">
       <div class="formGroup mb-3">
         <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre" [ngClass]="this.userForm.get('nombre')!.invalid && (this.userForm.get('nombre')!.touched || this.userForm.get('nombre')!.dirty) ?'controlError' :''">
         <div class="invalid-feedback" *ngIf="this.userForm.get('nombre')!.invalid && (this.userForm.get('nombre')!.touched || this.userForm.get('nombre')!.dirty)">El nombre debe tener mínimo 3 caracteres</div>
@@ -29,6 +29,6 @@
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" [disabled]="this.userForm.invalid" (click)="adicionarUsuario()">Adicionar</button>
+    <button type="button" class="btn btn-outline-dark" [disabled]="this.userForm.invalid" (click)="actualizarUsuario()">Actualizar</button>
   </div>
 </div>
